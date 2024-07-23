@@ -144,6 +144,9 @@ async function main(){
         await new Promise(resolve => setTimeout(resolve, 15000));
         await mailjs.login(address, password);
         const dataMail= await mailjs.getMessages();
+        if (!dataMail.data || dataMail.data.length === 0) {
+            throw new Error('No messages received.');
+        }
         const idMessages=dataMail.data[0].id;
         const messages=await mailjs.getMessage(idMessages);
         if (messages){
