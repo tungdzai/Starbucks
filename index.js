@@ -3,6 +3,7 @@ const Mailjs = require("@cemalgnlts/mailjs");
 const cheerio = require('cheerio');
 const fs = require('fs');
 const mailjs = new Mailjs();
+const keep_alive = require("./keep_alive.js");
 async function randomPhoneNumber() {
     const prefixes = ['090', '091', '092', '093', '094', '095', '096', '097', '098', '099'];
     const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
